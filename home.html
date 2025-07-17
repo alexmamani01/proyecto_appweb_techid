@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TECLAB - PRODUCTOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='../assets/css/estilos.css'  rel="stylesheet">
+    </head>
+    <body>
+        <section style="background-color: #2780b1; text-align: center;">
+            <img src="../assets/img/computing.jpeg">
+        </section>
+        <section>
+            <section style="text-align: center;">
+                <table id="productos">
+                    <thead>
+                        <tr> 
+                            <th>&nbsp;</th>
+                            <th>ID</th>
+                            <th>Categoria</th>                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php $ct = 0;
+                    foreach ($categorias as $categoria){
+                            $class = "";
+                            if ($ct % 2 == 0){
+                                $class="gris";
+                            }
+                            echo "<tr class='".$class."'>";
+                            echo "<td> M - E </td>";
+                            echo "<td>".$categoria['id']."</td>";
+                            echo "<td>".$categoria['nombre']."</td>";                            
+                            echo "</tr>";
+                            $ct++;
+                        }
+                    ?>
+                    </tbody>
+                </table>
+                <label id="label" style="display: none;">Texto del label</label>
+                <button type="button" class="btn-agregar" id="boton_agregar">Agregar</button>
+            </section> 
+        </section>
+        <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../assets/js/main.js" type="text/javascript"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,55 @@
+/* Esto es un comentario en CSS */
+/* Estilos css que pueden ser usados en los doc html para cambiar la estética*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Monserrat", sans-serif;
+}
+
+body{
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+    /*background-image: url(img/fondo.jpg);*/
+    background-size: cover;
+    text-align: center;
+    margin-top: 3%;
+
+}
+
+
+label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    margin-top: 5%;
+}
+/*esto es una clase */
+.label1{
+    font-family: 'Franklin Gothic Medium';
+}
+
+.banner-img {
+    max-width: 300px !important;
+    width: 100%;
+    height: auto !important;
+}
+
+.btm1{
+    background-color:#d6eaf8 ;
+    border-radius: 20%;
+    margin-top: 1%;
+
+}
+
+.btm2{
+    background-color:#d6eaf8 ;
+    border-radius: 20%;
+    margin-top: 1%;
+}
+
+.informacion_general{
+    text-align: center;
+}
+

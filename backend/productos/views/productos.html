@@ -1,0 +1,52 @@
+<!-- Formulario para la carga de productos -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Productos </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    </head>
+
+    <body>
+        <section>
+            <img src="../../assets/img/computing.jpeg" class="banner-img" alt="imagen tienda" />
+        </section>
+        <br>
+        <br>
+        <section>
+            <form id="form_productos" method="POST">
+                <label class="label1">Nombre del Producto</label>
+                <br>
+                <input type="text" id="p_producto"  >
+                <br>
+                <br>
+                <label> Imagen </label>
+                <br>
+                <input  type="file" id="p_imagen" >
+                <br>
+                <br>
+                <label> Descripción del producto</label>
+                <br>
+                <textarea id="p_descripcion"  > </textarea>
+                <br>
+                <br>
+                <label>Categoría</label>
+                <br>
+                <input  type="number" id="p_categoria" >
+                <br>
+                <br>
+                <button class="btm1" type="submit">Guardar</button>
+                <button class="btm2" type="button">Cancelar</button>
+                <h2>Alexandra Mamani</h2>
+            </form>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous" >
+        </script>
+        <script src="../../../assets/js/validaciones.js" type="text/javascript"></script>
+    </body>
+
+</html>
