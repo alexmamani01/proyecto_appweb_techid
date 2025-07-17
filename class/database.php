@@ -50,7 +50,7 @@ class database{
     } 
 
     public function delete($table_name, $filtros=null, $array_prepare){
-        $query_delete = "DELETE * FROM " . $table_name. "WHERE".$filtros;
+        $query_delete = " DELETE FROM " . $table_name. "WHERE".$filtros;
         $resource=$this->conexion->prepare(query_delete);
         $resource.execute($array_prepare);
         if($resource->execute($array_prepare)){
@@ -63,7 +63,7 @@ class database{
 
     public function update($table_name, $filtros=null, $campos, $array_prepare=null){
         $query_update= " UPDATE ". $table_name ." SET " .$campos ." WHERE ". $filtros;
-        $resource=$this->$conexion->prepare($query_update);
+        $resource=$this->conexion->prepare($query_update);
         $resource->execute($array_prepare);
         if($resource->execute($array_prepare)){
             return true;
@@ -75,7 +75,7 @@ class database{
         }
      }
     public function insert($table_name, $filtros, array $values, array $campos, $array_prepare=null){
-        $query_insert= " INSERT INTO ". $table_name . " (" .implode(',', $campos).")"  (".implode(",",$values)."). "";
+        $query_insert= " INSERT INTO ". $table_name . " (" .implode(',', $campos).")"  (".implode(",",$values )."). "";
         $resource=$this->conexion->prepare($query_insert);
         $resource->execute($array_prepare);
         if($resource->execute($array_prepare)){

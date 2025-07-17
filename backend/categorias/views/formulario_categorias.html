@@ -16,6 +16,8 @@
         <br>
         <br>
             <form id="form_categorias" method="POST">
+                <input type="hidden" name="id" value="<?php echo $categoria->id ?>">
+                <input type="hidden" name="accion" value="guardar"
                 <label>Nombre de la Categoría</label>
                 <br>
                 <input type="text" id="categorias">

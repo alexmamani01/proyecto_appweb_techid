@@ -1,4 +1,6 @@
 <?php 
+/*Alexandra Mamani */
+
 class categorias{
     public $id;
     public $nombre;
@@ -29,7 +31,7 @@ class categorias{
     }
 
     static public function select(){
-        $db=new database("mysql", "miproyecto", "root", "baro2461m!");
+        $db=new database();
         $categorias=$db->select("categorias");
         echo "<pre>";
         print_r($categorias);
