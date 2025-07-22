@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TECLAB - CATEGORÍAS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='../../assets/css/estilos.css' rel="stylesheet">
+    </head>
+    <body>
+        <section style="background-color: #7c62c3; text-align: center;">
+            <img src="../../assets/img/techid_ecommerce.jpg" class="banner-img">
+        </section>
+        <section class="centrar-tabla">
+            <h1>Lista de Categorías</h1>
+            <table id="categorias">
+                <thead>
+                    <tr>
+                        <th>Acciones</th>
+                        <th>ID</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php 
+                if (!empty($lista_ctg) && is_array($lista_ctg)) {
+                    foreach ($lista_ctg as $categoria) { ?>
+                        <tr>
+                            <td>
+                                <a href="index.php?update&id=<?php echo $categoria['id']; ?>" class="btn-action btn-edit">Modificar</a>
+                                <a href="index.php?delete&id=<?php echo $categoria['id']; ?>" class="btn-action btn-delete" onclick="return confirm('¿Seguro que quieres eliminar la categoría?');">Eliminar</a>
+                            </td>
+                            <td><?php echo $categoria['id']; ?></td>
+                            <td><?php echo $categoria['nombre']; ?></td>
+                        </tr>
+                    <?php }
+                } else {
+                    echo "<tr><td colspan='3'>No se encontraron categorías.</td></tr>";
+                }
+                ?>
+                </tbody>
+            </table>
+            <button type="button" class="btn-agregar" id="boton_agregar" onclick="window.location.href='index.php?add=true';">Agregar</button>
+            <section> Alexandra Mamani </section>
+        </section>
+        <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../../assets/js/main.js" type="text/javascript"></script>
+    </body>
+</html>
