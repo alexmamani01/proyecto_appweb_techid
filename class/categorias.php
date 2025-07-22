@@ -5,23 +5,28 @@ class categorias{
     public $id;
     public $nombre;
 
-    public function __construct($id=null, $nombre=null){
-        if($id!=null){
-            $temp = self::select($id);
-            if (!empty($temp)){
-                $this->id = $temp[0]['id'];
-                $this->nombre = $temp[0]['nombre'];
-                $this->_exists = true;
-                 }
-             }  
-         }
+    private $db;
+    private $exist=false;
+
+   public function __construct($id=null){
+      $this->db=new database();
+        if($id !=null){
+            $response=$this->db->select("categorias", ["id=?"], [$id]);
+            if(isset($response[0]['id'])){
+                $this->id=$response[0]['id'];
+                $this->nombre=$response[0]['nombre']; 
+                $this->exist=true;
+            }
+        }
+    }
     public function guardar(){
         $db = new database();
-        if ($this->_exists){
-            return $db->update("categorias", "nombre=?", "id=?",
-                        array(trim($this->nombre), $this->id));
+        if ($this->exist){
+            return $db->update("categorias", "nombre=?", "id=?", 
+                                 [trim($this->nombre), $this->id])
+                       ;
         } else {
-            return $db->insert("categorias", array("nombre"), array("?"), array(trim($this->nombre)));
+            return $db->insert("categorias",['nombre'], array("?"), array(trim($this->nombre)));
         }
     }
     
@@ -32,11 +37,7 @@ class categorias{
 
     static public function select(){
         $db=new database();
-        $categorias=$db->select("categorias");
-        echo "<pre>";
-        print_r($categorias);
-        echo "<pre>";
-        return $categorias;
+        return $db->select("categorias");
     }
      
 
