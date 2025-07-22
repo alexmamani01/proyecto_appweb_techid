@@ -1,5 +1,5 @@
 # Proyecto Web - Tecnicatura en Programación
-
+ Alexandra Mamani
 Este proyecto es una página web desarrollada como parte de la materia **Programación Web** de la Tecnicatura en Programación. Permite la gestión de productos y categorías, incluyendo carga, edición, eliminación y visualización en un entorno moderno y responsive.Incluye un home donde se muestran los productos de venta del ecommerce ficticio ficticia TECHID
 
 ## Características principales
@@ -65,4 +65,4 @@ MiProyecto/
 - Proyecto realizado por Alexandra Mamani para la materia **Programación Web** de la Tecnicatura en Programación de Teclab Instituto Técnico Superior
 
 ## Licencia
-Este proyecto es de uso académico y libre para fines educativos.
+Este proyecto está bajo la Licencia MIT. Puedes usarlo, copiarlo, modificarlo y compartirlo libremente, siempre y cuando mantengas el aviso de copyright <3
