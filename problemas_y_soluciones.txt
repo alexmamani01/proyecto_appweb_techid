@@ -1,0 +1,47 @@
+PROBLEMAS Y SOLUCIONES COMUNES EN EL PROYECTO
+
+1. Error de sintaxis en PHP (falta de punto y coma, llaves, etc.)
+   - Solución: Revisar el mensaje de error, ubicar la línea y corregir la sintaxis.
+
+2. Página "not found" al enviar formularios
+   - Solución: Corregir el atributo action del formulario para que apunte a la ruta correcta (por ejemplo, usar action="index.php" o una ruta absoluta).
+
+3. No se guardan imágenes subidas
+   - Solución: Crear la carpeta de destino (assets/img/productos), darle permisos de escritura (chmod 777) y usar rutas absolutas en move_uploaded_file.
+
+4. Error de permisos al subir archivos
+   - Solución: Dar permisos de escritura a la carpeta con chmod 777 productos.
+
+5. No se muestran datos en las tablas (productos/categorías)
+   - Solución: Verificar que la variable que se recorre en la vista sea la misma que se define en el controlador (ej: $lista_productos, $lista_ctg). Usar print_r para depurar.
+   -El error estaba en el select de la clase database
+6. Error de conexión o base de datos vacía
+   - Solución: Revisar el archivo .env y la clase database para asegurar que la conexión es a la base correcta. Usar código de depuración para mostrar la base conectada.
+
+7. Error de tipo de dato en la base de datos (ej: precio)
+   - Solución: Ingresar valores válidos según el tipo de dato definido en la tabla (por ejemplo, solo enteros si el campo es INT).
+
+8. Error "Cannot modify header information - headers already sent"
+   - Solución: No hacer echo/print ni enviar HTML antes de usar header().
+
+9. Warnings o errores de PHP visibles en producción
+   - Solución: Usar try...catch para capturar errores y redirigir, sin mostrar mensajes al usuario.
+
+10. Problemas de estilos o rutas de CSS/JS
+    - Solución: Usar rutas absolutas o relativas correctas y recargar la página sin caché (Ctrl+F5).
+
+11. Imagen del banner muy grande
+    - Solución: Usar la clase banner-img y ajustar max-width en el CSS.
+
+12. Fondo del banner de color incorrecto
+    - Solución: Cambiar el color de fondo en el style del section correspondiente.
+
+13. Problemas con Docker y caché
+    - Solución: Reiniciar los contenedores con docker-compose down/up --build y limpiar caché si es necesario. 
+
+14. Error de sintaxis en el método select de la clase database (bloque try...catch mal cerrado)
+    - Solución: Revisar y corregir la sintaxis del bloque try...catch, asegurando que todas las llaves estén correctamente cerradas antes del catch. Esto permitió que la consulta SELECT funcionara y se mostraran los datos en la tabla. 
+
+15. Botones de acción (Modificar/Eliminar) apilados y ocupando toda la celda en la tabla de productos
+    - Solución: Asegurarse de que ambos botones estén en la misma celda <td> y aplicar display: inline-block; y width: auto; en la clase .btn-action del CSS para que se muestren uno al lado del otro y no ocupen todo el ancho. 
+16-menu de navegacion: https://keepcoding.io/blog/como-hacer-un-menu-de-navegacion-en-html/ 
