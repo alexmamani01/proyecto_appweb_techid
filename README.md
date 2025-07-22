@@ -1,5 +1,5 @@
 # Proyecto Web - Tecnicatura en Programación
- Alexandra Mamani
+# Alexandra Mamani
 Este proyecto es una página web desarrollada como parte de la materia **Programación Web** de la Tecnicatura en Programación. Permite la gestión de productos y categorías, incluyendo carga, edición, eliminación y visualización en un entorno moderno y responsive.Incluye un home donde se muestran los productos de venta del ecommerce ficticio ficticia TECHID
 
 ## Características principales
