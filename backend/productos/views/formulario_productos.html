@@ -11,30 +11,43 @@
 
     <body>
         <section>
-            <img src="../../assets/img/computing.jpeg" class="banner-img" alt="imagen tienda" />
+            <img src="../../assets/img/techid_ecommerce.jpg" class="banner-img" alt="imagen tienda" />
         </section>
         <br>
         <br>
         <section>
-            <form id="form_productos" method="POST">
+            <form id="form_productos" method="POST" action="/backend/productos/index.php" enctype="multipart/form-data">
+                <input type="hidden" name="accion" value="guardar">
                 <label class="label1">Nombre del Producto</label>
                 <br>
-                <input type="text" id="p_producto"  >
+                <input type="text" id="p_producto" name="nombre" required>
                 <br>
                 <br>
                 <label> Imagen </label>
                 <br>
-                <input  type="file" id="p_imagen" >
+                <input  type="file" id="p_imagen" name="imagen" accept="image/*">
                 <br>
                 <br>
                 <label> Descripción del producto</label>
                 <br>
-                <textarea id="p_descripcion"  > </textarea>
+                <textarea id="p_descripcion" name="descripcion" required></textarea>
+                <br>
+                <br>
+                <label>Precio</label>
+                <br>
+                <input type="number" id="p_precio" name="precio" step="0.01" required>
                 <br>
                 <br>
                 <label>Categoría</label>
                 <br>
-                <input  type="number" id="p_categoria" >
+                <select id="p_categoria" name="id_categoria" required>
+                    <option value="">Seleccione una categoría</option>
+                    <?php foreach($lista_ctg as $categoria): ?>
+                        <option value="<?php echo $categoria['id']; ?>">
+                            <?php echo htmlspecialchars($categoria['nombre']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
                 <br>
                 <br>
                 <button class="btm1" type="submit">Guardar</button>
