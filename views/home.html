@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Categorías </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"  >
+    </head>
+    <header class="header-menu" style="border-radius: 12px;">
+        <img src="../../assets/img/techid_ecommerce.jpg" class="banner-img" >
+        <nav class="nav-menu">
+            <ul class="nav-ul">
+                <li class="nav-li"><a class="nav-a" href="index.php">Inicio</a></li>
+                <li class="nav-li"><a class="nav-a" href="backend/categorias/index.php">Categorías</a></li>
+                <li class="nav-li"><a class="nav-a" href="backend/productos/index.php">Productos</a></li> 
+            </ul>
+        </nav>
+    </header>
+    
+    <body>
+        <center>
+            <section style="background-color: white; text-align: center; height: 180px; border-radius: 12px;" >
+            </section>
+            <br>
+            <div><h1>Lista de Productos</h1></div>
+            <br>
+            
+            <br>
+            <div class="productos-grid">
+                <?php foreach($lista_productos as $producto): ?>
+                    <div class="producto-card">
+                        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>" alt="Imagen del producto" class="producto-img">
+                        <h3><?php echo htmlspecialchars($producto['nombre']); ?></h3>
+                        <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
+                        <p><strong>Precio:</strong> $<?php echo htmlspecialchars($producto['precio']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </center>
+    </body>
+
+</html>
