@@ -62,7 +62,7 @@ MiProyecto/
 - Puedes filtrar productos por categoría desde el menú o el filtro superior.
 
 ## Créditos
-- Proyecto realizado por Alexandra Mamamani para la materia **Programación Web** de la Tecnicatura en Programación de Teclab Instituto Técnico Superior
+- Proyecto realizado por Alexandra Mamani para la materia **Programación Web** de la Tecnicatura en Programación de Teclab Instituto Técnico Superior
 
 ## Licencia
 Este proyecto es de uso académico y libre para fines educativos.
