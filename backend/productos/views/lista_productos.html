@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Lista de Productos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='../../assets/css/estilos.css'  rel="stylesheet">
+    </head>
+    <body>
+        <section style="background-color: #7c62c3; text-align: center;">
+            <img src="../../assets/img/techid_ecommerce.jpg" class="banner-img">
+        </section>
+        <section class="centrar-tabla">
+            <h1 class="title">Lista de Productos</h1>
+            <table id="productos">
+                <thead>
+                    <tr>
+                        <th>Acciones</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Imagen</th>
+                        <th>Descripción</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($lista_productos as $productos){ ?>
+                    <tr>
+                        <td>
+                            <a href="index.php?update&id=<?php echo $productos['id']; ?>" class="btn-action btn-edit">Modificar</a>
+                            <a href="index.php?delete&id=<?php echo $productos['id']; ?>" class="btn-action btn-delete" onclick="return confirm('¿Seguro que quieres eliminar el producto?');">Eliminar</a>
+                        </td>
+                        <td><?php echo $productos['id'] ?></td>
+                        <td><?php echo $productos['nombre'] ?></td>
+                        <td><img src="<?php echo $productos['imagen'] ?>" alt="Imagen del producto" width="100"> </td>
+                        <td><?php echo $productos['descripcion'] ?></td>
+                        <td><?php echo $productos['id_categoria'] ?></td>
+                        <td><?php echo $productos['precio'] ?></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+            <br>
+            <a href="/backend/productos/index.php?add=true" class="btn-agregar" id="boton_agregar">Agregar</a>
+            <section> Alexandra Mamani </section>
+        </section>
+    </body>
+
+</html>
