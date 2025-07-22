@@ -10,17 +10,17 @@
     </head>
     <body>
         <section>
-            <img src="../../assets/img/computing.jpeg" class="banner-img" alt="imagen tienda" />
+            <img src="../../assets/img/techid_ecommerce.jpg" class="banner-img" alt="imagen tienda" />
         </section>
         <section>
         <br>
         <br>
             <form id="form_categorias" method="POST">
                 <input type="hidden" name="id" value="<?php echo $categoria->id ?>">
-                <input type="hidden" name="accion" value="guardar"
+                <input type="hidden" name="accion" value="guardar">
                 <label>Nombre de la Categoría</label>
                 <br>
-                <input type="text" id="categorias">
+                <input type="text" id="categorias" name="nombre" value="<?php echo $categoria->nombre ?>">
                 <br>
                 <button class="btm1" type="submit"> Guardar</button>
                 <button class="btm2" type="button">Cancelar </button>
