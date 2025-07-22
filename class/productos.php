@@ -6,7 +6,7 @@ class productos{
     public $nombre;
     public $descripcion;
     public $id_categoria;
-    public $precio;
+    public $precio; 
     public $imagen;
 
     private $exist=false;
@@ -38,7 +38,7 @@ class productos{
         if ($this->exist){
             return $this ->update();
         } else {
-            return $this ->insert();
+            return $this ->insertar();
         }
     }
 
@@ -49,8 +49,8 @@ class productos{
     private function insertar(){
         $response=$this->db->insert(
             "productos",
-            "nombre,descripcion, precio, imagen, id_categoria ",
-            "?,?,?,?,?",
+            ["nombre,descripcion, precio, imagen, id_categoria "],
+            ["?,?,?,?,?"],
             array($this->nombre,$this->descripcion,$this->precio,$this->imagen,$this->id_categoria)
         );
         if($response){
@@ -75,7 +75,5 @@ class productos{
         $db=new database();
         return $db->select("productos");
     }
-
-
 
  }
