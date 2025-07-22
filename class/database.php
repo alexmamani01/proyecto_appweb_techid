@@ -28,43 +28,50 @@ class database{
     }
 
 
-    public function select($table_name, $filtros = null, $order = null ){ 
+    public function select($table_name, $filtros = null, $order = null , $params = []){ 
         $query = "SELECT * FROM ".$table_name; 
         if ($filtros != null){
             $query .= " WHERE ".implode(" AND ", $filtros); 
         }
-        if ($order != null){
+        if ($order != null && is_string($order)){
             $query .= " ORDER BY ".$order;
         }
-        $resource = $this->conexion->prepare($query);
-        if (!$resource){
-            echo "Revisar la consulta";
-            echo "<pre>";
-            print_r($resource);
-            echo "</pre>";
-            echo $query;
-        } else {
-            $result = $resource->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+        try {
+            $resource = $this->conexion->prepare($query);
+            $resource->execute();
+            if (!$resource){
+                echo "Revisar la consulta";
+                echo "<pre>";
+                print_r($resource);
+                echo "</pre>";
+                echo $query;
+                return [];
+            } else {
+                $result = $resource->fetchAll(PDO::FETCH_ASSOC);
+                return $result;
+            }
+        } catch (PDOException $e) {
+            echo "Error en la consulta SELECT: " . $e->getMessage() . "<br>";
+            echo "Consulta SQL: " . $query . "<br>";
+            return []; // Devuelve un array vacío en caso de error
         }
-    } 
+     }
+     
 
-    public function delete($table_name, $filtros=null, $array_prepare){
-        $query_delete = " DELETE FROM " . $table_name. "WHERE".$filtros;
-        $resource=$this->conexion->prepare(query_delete);
-        $resource.execute($array_prepare);
+    public function delete($table_name, $filtros=null, $array_prepare=null){
+        $query_delete = " DELETE FROM " . $table_name. " WHERE ".$filtros;
+        $resource=$this->conexion->prepare($query_delete);
         if($resource->execute($array_prepare)){
-            return true;     
+            return true;
         } else {
             throw new Exception('No se puede realizar la consulta de eliminacion');
         }
     }
 
 
-    public function update($table_name, $filtros=null, $campos, $array_prepare=null){
+    public function update($table_name, $campos,$filtros, $array_prepare=null){
         $query_update= " UPDATE ". $table_name ." SET " .$campos ." WHERE ". $filtros;
         $resource=$this->conexion->prepare($query_update);
-        $resource->execute($array_prepare);
         if($resource->execute($array_prepare)){
             return true;
         } else {
@@ -74,12 +81,11 @@ class database{
             throw new Exception("No se pudo realizar la consulta de update");
         }
      }
-    public function insert($table_name, $filtros, array $values, array $campos, $array_prepare=null){
-        $query_insert= " INSERT INTO ". $table_name . " (" .implode(',', $campos).")"  (".implode(",",$values )."). "";
+    public function insert($table_name,array $campos,array $values, $array_prepare=null){
+        $query_insert= " INSERT INTO ". $table_name . " (" .implode(",", $campos).") VALUES (".implode(",", $values ).")";
         $resource=$this->conexion->prepare($query_insert);
-        $resource->execute($array_prepare);
         if($resource->execute($array_prepare)){
-            return true;
+            return $this->conexion->lastInsertId();
         } else {
             echo '<pre>';
             print_r($resource->errorInfo());
